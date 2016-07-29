@@ -1,4 +1,4 @@
-#calculate RMSD for trajectory, align current snapshot with last one then calculate it. 
+#calculate RMSD for trajectory, align current snapshot with the one previous then calculate it. 
 set nf [molinfo top get numframes]
 set out [open rmsd_next.dat w]
 set k 1
