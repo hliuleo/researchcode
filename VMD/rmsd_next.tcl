@@ -1,5 +1,5 @@
 #calculate RMSD for trajectory, align current snapshot with the one previous then calculate it. 
-set nf [molinfo top get numframes]
+set nf [expr [molinfo top get numframes] -1]
 set out [open rmsd_next.dat w]
 set k 1
 for {set j 2} {$j <= $nf} {incr j} {
