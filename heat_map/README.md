@@ -12,11 +12,11 @@
     [xGridNum, yGridNum] = size(Bins);
     x = data(:, 1);
     y = data(:, 2);
-    X = linspace(min(x), max(x), xGridNum);
-    Y = linspace(min(y), max(y), yGridNum);
+    X = linspace(min(x), max(x), xGridNum+1);
+    Y = linspace(min(y), max(y), yGridNum+1);
     
     % Plot Free energy
-    plot_FreeEnergy_contour(X, Y, Bins, F_energy);
+    plot_FreeEnergy_heatmap(X, Y, Bins, F_energy);
     
     % Annotate Fig
     xlim = [min(x) max(x)];
