@@ -3,10 +3,10 @@
    Return a Bin showing occurance of each grid
 %}
 
-function Bin = getBin(Data, BinWidth, xBinRange, yBinRange)
+function Bin = getBin(Data, xBinInfo, yBinInfo, xBinRange, yBinRange)
     x = Data(:, 1);
     y = Data(:, 2);
-    if nargin == 2
+    if nargin == 3
         xRange = max(x) - min(x);
         yRange = max(y) - min(y);
         x_start = min(x);
@@ -21,8 +21,15 @@ function Bin = getBin(Data, BinWidth, xBinRange, yBinRange)
         xRange = x_end - x_start;
         yRange = y_end - y_start;
     end
-    xGridNum = int16(xRange/BinWidth);
-    yGridNum = int16(yRange/BinWidth);
+    xisInt=~mod(xBinInfo, 1)
+    yisInt=~mod(yBinInfo, 1)
+    if xisInt | yisInt
+        xGridNum = xBinInfo
+        yGridNum = yBinInfo
+    else
+        xGridNum = int16(xRange/xBinInfo);
+        yGridNum = int16(yRange/yBinWInfo);
+    end
     Bin = zeros(xGridNum+1, yGridNum+1);
     [ConfNum, temp] = size(Data);
     for i=1:ConfNum
