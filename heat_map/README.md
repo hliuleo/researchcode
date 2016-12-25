@@ -7,7 +7,12 @@
 ## Usage example:
 
 ```matlab
-    Bins = getBin(data, BinWidth);
+    % set parameter
+    T = 300;
+    xBinInfo = 100;
+    yBinInfo = 100;
+
+    Bins = getBin(data, xBinInfo, yBinInfo);
     F_energy = calFreeEnergy(Bins, T);
     [xGridNum, yGridNum] = size(Bins);
     x = data(:, 1);
