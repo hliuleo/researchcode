@@ -75,6 +75,10 @@ def addRec(f, ax, dimension, color='k'):
     rec.set_facecolor(color)
     ax2.xaxis.set_visible(False)
     ax2.yaxis.set_visible(False)
+    ax2.spines['top'].set_visible(False)
+    ax2.spines['right'].set_visible(False)
+    ax2.spines['bottom'].set_visible(False)
+    ax2.spines['left'].set_visible(False)
     return ax2
 
 ### To set one side tick line, one can use ax.xaxis.tick_bottom(),ax.yaxis,tick_left() Only show tick line on bottom for x axis and on left for y axis
