@@ -58,6 +58,13 @@ menu main      on
 ## import pbctool plugin
 package require pbctools
 
+## set VMD dir
+global VMDDIR
+set VMDDIR $env(VMDDIR)
+
+## load my own scripts
+source $env(VMDDIR)/myScripts/sscache.tcl
+
 set cter "resname NHE or resname NME"
 
 display projection orthographic
@@ -121,4 +128,5 @@ after idle {
 		}
 	}
 	pbc box
+        start_sscache
 }
