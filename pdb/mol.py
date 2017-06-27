@@ -12,8 +12,7 @@ from StringIO import StringIO
 # os.chdir('/home/hliu/Desktop')
 
 
-def readMol(mol_pth):
-
+def readMolStr(mol_pth):
     with open(mol_pth, 'r') as f:
         mol_str = f.readlines()
     atom_identifier = ['ATOM']
@@ -23,7 +22,11 @@ def readMol(mol_pth):
             results.append(line.startswith(i))
         return any(results)
     mol_str = ''.join([a for a in mol_str if isAtomInfo(a)])
-    
+    return mol_str
+
+
+def molStr2DF(mol_str):
+
     cols = ['Identifier',
             'AtomID',
             'AtomName',
@@ -64,8 +67,19 @@ def readMol(mol_pth):
     
         return mol
 
-
 def fetchSeq(mol):
-    resIdx = mol.groupby('ResID').apply(lambda x: x.index[0])
+    idx = 1
+    resi = mol.ResID.ix[0]
+    info = [resi, idx]
+    def label_residue(i):
+        if i == info[0]:
+            return info[1]
+        else:
+            idx = info[1]+1
+            info[0] = i
+            info[1] = idx
+            return idx
+    resi_label = [label_residue(i) for i in mol.ResID]
+    resIdx = mol.groupby(resi_label).apply(lambda x: x.index[0])
     seq = mol.loc[resIdx, ['ResID', 'ResName']]
     return seq
