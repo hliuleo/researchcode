@@ -9,4 +9,7 @@ pages:
   - Log: 'log.md'
 markdown_extensions:
   - toc
+  - tables
+  - fenced_code
   - footnotes
+  - admonition
