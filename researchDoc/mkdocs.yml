@@ -1,0 +1,12 @@
+site_name:
+pages:
+  - Home: 'index.md'
+  - Experiments: 'experiments.md'
+  - Analysis: 'analysis/index.md'
+  - Results: 'results.md'
+  - Code: 'code.md'
+  - Reference: 'reference.md'
+  - Log: 'log.md'
+markdown_extensions:
+  - toc
+  - footnotes
