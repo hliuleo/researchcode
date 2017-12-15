@@ -13,3 +13,4 @@ markdown_extensions:
   - fenced_code
   - footnotes
   - admonition
+  - nl2br
