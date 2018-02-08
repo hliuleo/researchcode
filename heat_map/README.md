@@ -1,4 +1,4 @@
-# This folder contains multiple block functions writing in Matlab to plot a [heat map] of a N*2 dataset
+# This folder contains multiple block functions written in Matlab to plot a [heat map] of a N*2 dataset
 
 * [getBin](getBin.m)
 * [calFreeEnergy](calFreeEnergy.m)
@@ -29,6 +29,7 @@
     title(TitleName);
     set(gca,'YLim', ylim, 'XLim', xlim);
     set(gca, 'LineWidth', 2, 'FontSize', 14);
+    colorbar
 ```
 
 [heat map]:https://en.wikipedia.org/wiki/Heat_map

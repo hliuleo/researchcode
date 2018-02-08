@@ -28,7 +28,7 @@ function Bin = getBin(Data, xBinInfo, yBinInfo, xBinRange, yBinRange)
         yGridNum = yBinInfo
     else
         xGridNum = int16(xRange/xBinInfo);
-        yGridNum = int16(yRange/yBinWInfo);
+        yGridNum = int16(yRange/yBinInfo);
     end
     Bin = zeros(xGridNum+1, yGridNum+1);
     [ConfNum, temp] = size(Data);

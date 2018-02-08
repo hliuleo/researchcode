@@ -28,7 +28,14 @@ def set_format(ax):
     yt[0].set_visible(False)
 
 
-def set_tickinterval(ax, axis, interval):
+def set_minortick_interval(ax, axis, divided_num):
+    majortick_locs = eval('ax.%saxis.get_ticklocs()' % axis)
+    majortick_interval = majortick_locs[1]-majortick_locs[0]
+    minortick_interval = majortick_interval/divided_num
+    
+
+
+def set_majortick_interval(ax, axis, interval):
     ticklocs = eval('ax.%saxis.get_ticklocs()' % axis)
     maxvalue = ticklocs[-1]
     current = ticklocs[0]
