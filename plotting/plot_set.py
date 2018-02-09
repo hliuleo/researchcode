@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from params import *
+from .params import *
 
 # revise matplotlib rc parameters to customize features of figure, like line width, axis width, label fontsize....
 myparams = {
